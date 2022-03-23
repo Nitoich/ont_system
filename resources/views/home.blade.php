@@ -1,0 +1,100 @@
+
+@extends('templates.default')
+
+@section('title')
+    Расписание
+@endsection
+
+@section('jos')
+    <link rel="stylesheet" href="app.css">
+    <script src="https://kit.fontawesome.com/630e35a26e.js" crossorigin="anonymous"></script>
+@endsection
+
+@section('content')
+    <?php // var_dump(asset('/images/bg.webp')); ?>
+    <div class="bg"></div>
+    <div class="bg-overlay"></div>
+
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__content">
+                <p>Расписание</p>
+                <p>Телефон: (3537)21-66-29</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="wrapper">
+            <div class="main__content">
+                <div class="forms">
+                    <div class="forms__container">
+                        @include('templates.forms.main')
+                        <div class="form rasp">
+                            <div class="form-content">
+                                <select name="" id="select-group" class="groups">
+                                    <option value="" disabled selected>Группа</option>
+                                </select>
+
+                                <div class="rasp-container">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form izm">
+
+                        </div>
+                        <div class="form login">
+                            <div class="wrapper">
+                                <div class="form-content">
+                                    <input type="username" placeholder="Логин">
+                                    <input type="password" placeholder="Пароль">
+                                    <button id="auth-button">Войти</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav">
+                    <ul class="nav__container">
+                        <li>
+                            <button class="home">
+                                <i class="fa-solid fa-house-user"></i>
+                                <p>Главная</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="rasp">
+                                <i class="fa-solid fa-table-cells"></i>
+                                <p>Расписание</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="izm">
+                                <i class="fa-solid fa-newspaper"></i>
+                                <p>Изменения</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="login">
+                                <i class="fa-solid fa-user"></i>
+                                <p>Авторизация</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="footer__content">
+                Copyright © 2021 И.В.Финк
+            </div>
+        </div>
+    </footer>
+
+    <script src="<?php echo resource_path(); ?>/main.js"></script>
+@endsection
