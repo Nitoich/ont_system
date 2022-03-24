@@ -2,9 +2,14 @@ const Slider = {
     currentSlide: 'home',
     dispathSlide(slideName) {
         let slideElement = document.querySelector(`.form.${slideName}`);
-        this.diactivateAllSlides();
-        slideElement.classList.add('active');
-        this.currentSlide = slideName;
+        if(slideElement) {
+            this.diactivateAllSlides();
+            window.location.hash = `#${slideName}`;
+            slideElement.classList.add('active');
+            this.currentSlide = slideName;
+        } else {
+            window.location.hash = '';
+        }
     },
     diactivateAllSlides() {
         document.querySelectorAll('.form').forEach(el => {
@@ -14,10 +19,14 @@ const Slider = {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    console.log(document.querySelectorAll('button.slide-btn'))
     document.querySelectorAll('button.slide-btn').forEach(btn => {
         btn.addEventListener('click', (event) => {
             Slider.dispathSlide(btn.getAttribute('data-slide'));
         });
     });
+
+    if(window.location.hash) {
+        slideName = window.location.hash;
+        Slider.dispathSlide(slideName.replace('#',''));
+    }
 });
