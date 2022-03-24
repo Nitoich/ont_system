@@ -177,6 +177,7 @@ main.main {
     border: 4px solid rgba(92,180,142,.4);
     border-radius: 10px;
     font-weight: bold;
+    padding: 4px 10px;
 }
 
 .login .form-content > button {
