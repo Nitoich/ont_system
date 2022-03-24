@@ -20,7 +20,9 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/#login');
+            return redirect('/#login')->withErrors([
+                'formError' => 'Ошибка валидатции!'
+            ]);
         }
 
         $user = User::where('login', $request->login)->first();
@@ -30,10 +32,14 @@ class AuthController extends Controller
                 Auth::login($user);
                 return redirect('/#profile');
             } else {
-                return redirect('/');
+                return redirect('/#login')->withErrors([
+                    'formError' => 'Неверный пароль'
+                ]);;
             }
         } else {
-            return redirect('/');
+            return redirect('/#login')->withErrors([
+                'formError' => 'Пользователь не найден!'
+            ]);
         }
     }
 }

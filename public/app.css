@@ -271,7 +271,23 @@ button.login:hover {
     background: #b85b5350;
 }
 
-@media screen and (max-width: 1240px) {
+button.profile:hover {
+    border: 2px solid #ff9f43;
+    color: #ff9f43;
+    box-shadow: 0 0 30px #ff9f43;
+    background: #ff9f4350;
+}
+
+.error-block {
+    border: 2px solid #e74c3c;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #e74c3c50;
+}
+
+@media screen and (max-width: 1280px) {
     .main__content {
         flex-direction: column-reverse;
     }
@@ -307,6 +323,12 @@ button.login:hover {
         width: 60px;
         height: 60px;
         margin: 0px 30px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
     }
 }
 
