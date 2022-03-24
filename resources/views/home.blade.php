@@ -31,29 +31,9 @@
                 <div class="forms">
                     <div class="forms__container">
                         @include('templates.forms.main')
-                        <div class="form rasp">
-                            <div class="form-content">
-                                <select name="" id="select-group" class="groups">
-                                    <option value="" disabled selected>Группа</option>
-                                </select>
-
-                                <div class="rasp-container">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form izm">
-
-                        </div>
-                        <div class="form login">
-                            <div class="wrapper">
-                                <div class="form-content">
-                                    <input type="username" placeholder="Логин">
-                                    <input type="password" placeholder="Пароль">
-                                    <button id="auth-button">Войти</button>
-                                </div>
-                            </div>
-                        </div>
+                        @include('templates.forms.rasp')
+                        @include('templates.forms.izm')
+                        @include('templates.forms.login')
                     </div>
                 </div>
 
