@@ -33,7 +33,12 @@
                         @include('templates.forms.main')
                         @include('templates.forms.rasp')
                         @include('templates.forms.izm')
-                        @include('templates.forms.login')
+                        @if(!\Illuminate\Support\Facades\Auth::check())
+                            @include('templates.forms.login')
+                        @endif
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                            @include('templates.forms.profile')
+                        @endif
                     </div>
                 </div>
 
@@ -57,12 +62,22 @@
                                 <p>Изменения</p>
                             </button>
                         </li>
-                        <li>
-                            <button class="slide-btn login" data-slide="login">
-                                <i class="fa-solid fa-user"></i>
-                                <p>Авторизация</p>
-                            </button>
-                        </li>
+                        @if(!\Illuminate\Support\Facades\Auth::check())
+                            <li>
+                                <button class="slide-btn login" data-slide="login">
+                                    <i class="fa-solid fa-user"></i>
+                                    <p>Авторизация</p>
+                                </button>
+                            </li>
+                        @endif
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                            <li>
+                                <button class="slide-btn profile" data-slide="profile">
+                                    <i class="fa-solid fa-user"></i>
+                                    <p>Профиль</p>
+                                </button>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
