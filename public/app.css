@@ -142,7 +142,7 @@ main.main {
     height: 40px;
     overflow: hidden;
     line-height: 40px;
-    transition: 0.3s ease-in-out;
+    transition: height 0.3s;
     cursor: pointer;
     border-radius: 20px;
 }
@@ -152,7 +152,7 @@ main.main {
 }
 
 .day.active {
-    height: auto;
+    height: max-content;
     border-radius: 5px;
 }
 
