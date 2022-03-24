@@ -11,7 +11,7 @@ class AuthController extends Controller
 {
     public function login(Request $request) {
         if(Auth::check()) {
-            redirect('/#profile');
+            return redirect('/#profile');
         }
 
         $validator = Validator::make($request->all(), [
@@ -20,7 +20,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            redirect('/#login');
+            return redirect('/#login');
         }
 
         $user = User::where('login', $request->login)->first();
@@ -28,12 +28,12 @@ class AuthController extends Controller
         if ($user) {
             if ($user->password === $request->password) {
                 Auth::login($user);
-                redirect('/#profile');
+                return redirect('/#profile');
             } else {
-                redirect('/');
+                return redirect('/');
             }
         } else {
-            redirect('/');
+            return redirect('/');
         }
     }
 }

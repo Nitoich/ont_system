@@ -22,6 +22,6 @@ Route::post('/login', 'App\Http\Controllers\AuthController@login');
 Route::get('/logout', function() {
     if(Auth::check()) {
         Auth::logout();
-        redirect()->route('mainpage');
     }
+    return redirect('/#login');
 });

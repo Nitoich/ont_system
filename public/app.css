@@ -185,6 +185,7 @@ main.main {
     background: rgba(92,180,142,.4);
     border: none;
     cursor: pointer;
+    padding: 5px 10px;
 }
 
 .login .form-content > button:hover {
@@ -269,7 +270,6 @@ button.login:hover {
     box-shadow: 0 0 30px #b85b53;
     background: #b85b5350;
 }
-
 
 @media screen and (max-width: 1240px) {
     .main__content {
