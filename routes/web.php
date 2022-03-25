@@ -25,3 +25,11 @@ Route::get('/logout', function() {
     }
     return redirect('/#login');
 });
+
+Route::get('/admin', function() {
+    if(Auth::check()) {
+        //
+    } else {
+        return redirect('/');
+    }
+});
