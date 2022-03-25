@@ -7,6 +7,7 @@
 
 @section('jos')
     <link rel="stylesheet" href="app.css">
+    <script src="{{ asset('assets/js/loadingModal.js') }}"></script>
     <script src="https://kit.fontawesome.com/630e35a26e.js" crossorigin="anonymous"></script>
     <script src="<?php echo asset('assets/js/slidesForm.js'); ?>"></script>
     <script src="https://unpkg.com/vue@3"></script>
