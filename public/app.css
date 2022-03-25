@@ -287,6 +287,11 @@ button.profile:hover {
     background: #e74c3c50;
 }
 
+.filter-container > *{
+    padding: 10px;
+    margin: 0 10px;
+}
+
 @media screen and (max-width: 1280px) {
     .main__content {
         flex-direction: column-reverse;
