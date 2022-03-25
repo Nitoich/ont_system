@@ -32,6 +32,6 @@ Route::get('/admin', function() {
     if(Auth::check()) {
         //
     } else {
-        return redirect('/');
+        return redirect('/#login');
     }
 });

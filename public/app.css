@@ -292,6 +292,25 @@ button.profile:hover {
     margin: 0 10px;
 }
 
+.form-content.profile {
+    background: #ffffff50;
+    border-radius: 20px;
+}
+
+.btn {
+    display: block;
+    background: rgba(92,180,142,1);
+    text-decoration: none;
+    padding: 5px;
+    color: #000;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: rgba(92,180,142,0.5);
+}
+
 @media screen and (max-width: 1280px) {
     .main__content {
         flex-direction: column-reverse;
@@ -330,6 +349,8 @@ button.profile:hover {
         margin: 0px 30px;
     }
 }
+
+
 
 @media screen and (max-width: 1024px) {
     .wrapper {

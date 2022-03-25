@@ -3,6 +3,9 @@
 ?>
 
 <div class="form profile">
-    <p>{{ $user->name }} {{ $user->patronymic }}</p>
-    <a href="/logout">ВЫЙТИ</a>
+    <div class="form-content profile">
+        <p>{{ $user->name }} {{ $user->patronymic }}</p>
+        <a href="/admin" class="btn">Администрирование</a>
+        <a href="/logout" class="btn">ВЫЙТИ</a>
+    </div>
 </div>
