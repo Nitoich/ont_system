@@ -26,6 +26,17 @@ const Rasp = {
                         })
                     })
                 })
+        },
+        showAll() {
+            console.log(this.$refs.raspContainer.children)
+            for (let i = 0; i < this.$refs.raspContainer.children.length; i++) {
+                this.$refs.raspContainer.children[i].classList.add('active');
+            }
+        },
+        closeAll() {
+            for (let i = 0; i < this.$refs.raspContainer.children.length; i++) {
+                this.$refs.raspContainer.children[i].classList.remove('active');
+            }
         }
     }
 }

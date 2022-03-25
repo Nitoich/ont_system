@@ -11,6 +11,9 @@
             @if(\Illuminate\Support\Facades\Auth::check())
                 <button>Редактировать</button>
             @endif
+
+            <button @click="showAll()" >Открыть все</button>
+            <button @click="closeAll()">Закрыть все</button>
         </div>
         <div ref="raspContainer" class="rasp-container">
 
