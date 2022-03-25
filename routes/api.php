@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/group', [\App\Http\Controllers\GroupController::class, 'getApiGroups']);
+Route::get('/rasp', [\App\Http\Controllers\RaspController::class, 'getRaspByGroupJSON']);
