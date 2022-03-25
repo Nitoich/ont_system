@@ -32,6 +32,20 @@ class RaspController extends Controller
             $this->data[$para->day['den']][] = $para;
         });
 
+
+        // Сортировка
+        foreach ($this->data as $day) {
+            for($j = 0; $j < count($day); $j++) {
+                for($i = 0; $i < count($day) - $j - 1; $i++) {
+                    if ($day[$i]->para > $day[$i + 1]->para) {
+                        $tmp_var = $day[$i + 1]->para;
+                        $day[$i + 1]->para = $day[$i]->para;
+                        $day[$i]->para = $tmp_var;
+                    }
+                }
+            }
+        }
+
         return View::make('templates.AjaxSupports.RaspElements')->with('data', $this->data);
     }
 }
