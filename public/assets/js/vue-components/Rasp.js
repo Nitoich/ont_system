@@ -9,7 +9,7 @@ const Rasp = {
             console.log(this.group);
         },
         getRasp() {
-            fetch(`/api/rasp?group=${this.group}`, {
+            fetch(`/rasp?group=${this.group}`, {
                 headers: {
                     'Content-Type': 'text/html'
                 }

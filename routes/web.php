@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('home');
 })->name('mainpage');
 
+Route::get('/rasp', [\App\Http\Controllers\RaspController::class, 'getRaspByGroup']);
+
 Route::post('/login', 'App\Http\Controllers\AuthController@login');
 Route::get('/logout', function() {
     if(Auth::check()) {
