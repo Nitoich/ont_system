@@ -30,7 +30,7 @@ Route::get('/logout', function() {
 
 Route::get('/admin', function() {
     if(Auth::check()) {
-        //
+        return view('admin');
     } else {
         return redirect('/#login');
     }

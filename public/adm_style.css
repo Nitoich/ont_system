@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+}
+
+.content {
+    flex: 1;
+}
+
+.menu {
+    height: 100vh;
+    width: 50px;
+    background: rgba(92,180,142,1);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.menu__list {
+    list-style: none;
+}
+
+.menu__list > .menu__item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 10px;
+    width: 150px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.menu__list > .menu__item > .item__img {
+    font-size: 30px;
+    margin-right: 20px;
+    trasition: 0.5s;
+}
+
+.menu.active {
+    width: 150px;
+}
+
+.menu .menu__item:hover {
+    background: #00000050;
+}
+
+.menu.active .menu__item {
+    justify-content: start;
+}
