@@ -33,7 +33,7 @@
             <input type="text" placeholder="Отчество">
             <input type="text" placeholder="Логин">
             <input type="password" placeholder="Пароль">
-            <button></button>
+            <button>ДОБАВИТЬ</button>
         </form>
     </div>
     <ul class="teacher__list">

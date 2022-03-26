@@ -11,17 +11,9 @@ const adminMenu = {
         hidding() {
             this.$refs.menu.classList.remove('active');
         },
-        goToSite() {
-            window.location.href='/'
+        goToSite(url) {
+            window.location.href=url;
         },
-
-        getTemplate(templateName) {
-            fetch('/admin/template?name=' + templateName)
-                .then((res) => {return res.text()})
-                .then(res => {
-                    document.querySelector('div.content').innerHTML = res;
-                })
-        }
     }
 }
 

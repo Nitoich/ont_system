@@ -16,14 +16,14 @@
     <div id="vue-menu">
         <div ref="menu" class="menu" @mouseenter="showing()" @mouseleave="hidding()">
             <ul class="menu__list">
-                <li class="menu__item" @click="goToSite()">
+                <li class="menu__item" @click="goToSite('/')">
                     <div class="item__img">
                         <i class="fa-solid fa-house-user"></i>
                     </div>
                     <div class="item__name">На сайт</div>
                 </li>
 
-                <li class="menu__item" @click="getTemplate('teachers')">
+                <li class="menu__item" @click="goToSite('/admin?tab=teachers')">
                     <div class="item__img">
                         <i class="fa-solid fa-user"></i>
                     </div>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="content">
-
+        @include('templates.AdminTemplates.' . $tab)
     </div>
 @endsection
 
