@@ -50,6 +50,8 @@ class RaspController extends Controller
         return View::make('templates.AjaxSupports.RaspElements')->with('data', $this->data);
     }
 
+
+
     public function getRaspByGroupJSON(Request $request) {
         $this->data = [];
         $validator = Validator::make($request->all(), [

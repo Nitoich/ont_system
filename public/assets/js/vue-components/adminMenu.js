@@ -14,6 +14,14 @@ const adminMenu = {
         },
         goToSite() {
             window.location.href='/'
+        },
+
+        getTemplate(templateName) {
+            fetch('/admin/template?name=' + templateName)
+                .then((res) => {return res.text()})
+                .then(res => {
+                    document.querySelector('div.content').innerHTML = res;
+                })
         }
     }
 }

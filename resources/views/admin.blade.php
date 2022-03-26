@@ -23,7 +23,7 @@
                     <div class="item__name">На сайт</div>
                 </li>
 
-                <li class="menu__item">
+                <li class="menu__item" @click="getTemplate('teachers')">
                     <div class="item__img">
                         <i class="fa-solid fa-user"></i>
                     </div>

@@ -35,3 +35,5 @@ Route::get('/admin', function() {
         return redirect('/#login');
     }
 });
+
+Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
