@@ -8,7 +8,7 @@ modal.style.display = 'flex';
 modal.style.justifyContent = 'center';
 modal.style.alignItems = 'center';
 modal.innerHTML = `
-    <div class="loading-img" style="background: url(images/loading.gif); background-repeat: no-repeat; background-position: center; background-size: cover; width: 100px; height: 100px"></div>
+    <div class="loading-img" style="background: url(storage/images/loading.gif); background-repeat: no-repeat; background-position: center; background-size: cover; width: 100px; height: 100px"></div>
 `;
 
 window.addEventListener('DOMContentLoaded', (event) => {

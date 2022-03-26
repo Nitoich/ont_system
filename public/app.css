@@ -20,7 +20,7 @@ main {
 
 .bg {
     position: fixed;
-    background: url(/images/bg.webp);
+    background: url(/storage/images/bg.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
