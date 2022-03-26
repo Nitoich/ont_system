@@ -36,4 +36,6 @@ Route::get('/admin', function() {
     }
 });
 
-Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
+Route::middleware('auth')->group(function() {
+    Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
+});
