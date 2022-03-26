@@ -14,13 +14,20 @@
 
 @section('content')
     <div id="vue-menu">
-        <div ref="menu" class="menu" @mouseenter="showing()" @mouseleave="hidding()" @click="goToSite()">
+        <div ref="menu" class="menu" @mouseenter="showing()" @mouseleave="hidding()">
             <ul class="menu__list">
-                <li class="menu__item">
+                <li class="menu__item" @click="goToSite()">
                     <div class="item__img">
                         <i class="fa-solid fa-house-user"></i>
                     </div>
                     <div class="item__name">На сайт</div>
+                </li>
+
+                <li class="menu__item">
+                    <div class="item__img">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="item__name">Учителя</div>
                 </li>
             </ul>
         </div>
