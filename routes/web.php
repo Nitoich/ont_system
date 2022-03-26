@@ -28,10 +28,7 @@ Route::get('/logout', function() {
     return redirect('/#login');
 });
 
-Route::get('/admin', function() {
-    if(Auth::check()) {
-        //
-    } else {
-        return redirect('/#login');
-    }
+Route::middleware('auth')->group(function() {
+    Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'getPage']);
+    Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
 });
