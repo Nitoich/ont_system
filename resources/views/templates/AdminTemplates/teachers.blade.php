@@ -11,11 +11,23 @@
 
     .teacher__list {
         list-style: none;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
 
     .teacher__item {
-        padding: 20px;
+        padding: 20px 5px;
         border: 2px solid #000;
+        width: 200px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px 0;
+        transition: transform 0.4s;
+    }
+
+    .teacher__item:hover {
+        transform: perspective(300px) translateZ(20px);
     }
 
     .teacher_add {
@@ -39,7 +51,9 @@
     <ul class="teacher__list">
         @foreach(\App\Models\User::all() as $teacher)
             <li class="teacher__item">
-                {{ $teacher->FIO }}
+                <p>ФИО: {{ $teacher->FIO }}</p>
+                <p>ID: {{ $teacher->id }}</p>
+                <p>login: {{ $teacher->login }}</p>
             </li>
         @endforeach
     </ul>
