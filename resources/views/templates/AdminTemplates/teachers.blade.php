@@ -107,7 +107,17 @@
                                     }
                                 }, 1000);
                             } else {
-                                console.log('DELETE!')
+                                fetch(`/admin/teacher?login=${this.login}&_token=${document.querySelector('input[name="_token"]').value}`, {
+                                    method: 'delete',
+                                    credentials: 'same-origin'
+                                })
+                                .then(res => {
+                                    if(res.status != 200) {
+                                        console.log('error!');
+                                    } else {
+                                        window.location.reload();
+                                    }
+                                })
                             }
                         }
                     }

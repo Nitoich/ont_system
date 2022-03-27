@@ -74,4 +74,22 @@ class AdminController extends Controller
             return response()->json()->setStatusCode(200);
         }
     }
+
+    public function delTeacher(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'login' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        $user = User::where('login', $request->login)->first();
+        if ($user) {
+            $user->delete();
+            return response()->json()->setStatusCode(200);
+        } else {
+            return response()->json()->setStatusCode(404);
+        }
+    }
 }

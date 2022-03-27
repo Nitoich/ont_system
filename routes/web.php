@@ -34,4 +34,5 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'getTeacherInfo']);
     Route::post('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'addTeacher']);
+    Route::delete('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'delTeacher']);
 });
