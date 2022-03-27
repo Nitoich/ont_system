@@ -37,7 +37,7 @@ body {
 
 .menu__list > .menu__item > .item__img {
     font-size: 30px;
-    margin-right: 20px;
+    margin-right: 10px;
     trasition: 0.5s;
     text-align: center;
     min-width: 50px;
