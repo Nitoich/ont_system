@@ -27,35 +27,41 @@
     }
 </style>
 
-<div class="info-container">
+<input type="hidden" id="modal-login" value="{{ $teacher->login }}">
+<input id="modal-password" type="hidden" value="{{ $teacher->password }}">
+<input id="modal-fam" type="hidden" value="{{ $teacher->Fam }}">
+<input id="modal-name" type="hidden" value="{{ $teacher->name }}">
+<input id="modal-patronymic" type="hidden" value="{{ $teacher->patronymic }}">
+
+<div class="info-container" id="info-container">
 
     <div class="input-block">
         <label for="login">Логин:</label><br>
-        <input disabled id="login" type="text" value="{{ $teacher->login }}">
+        <input disabled v-model="this.login" type="text">
     </div>
 
     <div class="input-block">
         <label for="password">Пароль:</label><br>
-        <input id="password" type="text" value="{{ $teacher->password }}">
+        <input type="text" v-model="this.password">
     </div>
 
     <div class="input-block">
         <label for="fam">Фамилия:</label><br>
-        <input id="fam" type="text" value="{{ $teacher->Fam }}">
+        <input type="text" v-model="this.last_name">
     </div>
 
     <div class="input-block">
         <label for="name">Имя:</label><br>
-        <input id="name" type="text" value="{{ $teacher->name }}">
+        <input type="text" v-model="this.first_name">
     </div>
 
     <div class="input-block">
         <label for="patronymic">Отчество:</label><br>
-        <input id="patronymic" type="text" value="{{ $teacher->patronymic }}">
+        <input type="text" v-model="this.patronymic">
     </div>
 
     <div class="input-block">
-        <button>ОБНОВИТЬ</button>
+        <button @click="updateRequest()">ОБНОВИТЬ</button>
     </div>
 
 </div>

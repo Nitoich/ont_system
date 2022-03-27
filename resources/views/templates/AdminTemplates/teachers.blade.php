@@ -75,8 +75,27 @@
             })
             .then(res => {
                 RootModal.setTemplate(res);
+                window.teacherInfo = Vue.createApp({
+                    data() {
+                        return {
+                            login: document.getElementById('modal-login').value,
+                            password: document.getElementById('modal-password').value,
+                            first_name: document.getElementById('modal-name').value,
+                            last_name: document.getElementById('modal-fam').value,
+                            patronymic: document.getElementById('modal-patronymic').value,
+                        }
+                    },
+                    props: [
+                        'loginData'
+                    ],
+                    methods: {
+                        updateRequest() {
+                            console.log(this.first_name)
+                            console.log(this.last_name)
+                        }
+                    }
+                }).mount('#info-container');
             })
-
         });
     });
 
