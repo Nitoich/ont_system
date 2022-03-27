@@ -52,7 +52,7 @@
     </div>
     <ul class="teacher__list">
         @foreach(\App\Models\User::all() as $teacher)
-            <li class="teacher__item">
+            <li class="teacher__item" data-id="{{ $teacher->id }}">
                 <p>ФИО: {{ $teacher->FIO }}</p>
                 <p>ID: {{ $teacher->id }}</p>
                 <p>login: {{ $teacher->login }}</p>
@@ -65,8 +65,15 @@
     let teachers_cards = document.querySelectorAll('li.teacher__item');
     teachers_cards.forEach(el => {
         el.addEventListener('click', function(event) {
-            console.log('123')
-            let RootModal = new Modal('Учитель!');
+            fetch('/admin/teacher?id=' + this.getAttribute('data-id'), {
+                method: 'get',
+                credentials: "same-origin"
+            })
+            .then(res => {return res.text()})
+            .then(res => {
+                let RootModal = new Modal(res);
+            })
+
         });
     });
 </script>
