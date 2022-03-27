@@ -34,6 +34,33 @@
         padding: 20px;
         border: 2px solid black;
     }
+
+    .teachers__search {
+        width: 100%;
+        border: 2px solid black;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .teachers__search input {
+        font-weight: bold;
+        font-size: 24px;
+        flex: 1;
+        margin: 0 10px;
+    }
+
+    .btn {
+        padding: 10px;
+        background: #207d59;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #207d5999;
+    }
 </style>
 
 
@@ -50,6 +77,11 @@
         <button id="add_teacher">ДОБАВИТЬ</button>
     </div>
     <ul class="teacher__list">
+        <li class="teachers__search">
+            <label for="search-input">Поиск: </label>
+            <input type="text" id="search-input">
+            <button class="btn">Поиск</button>
+        </li>
         @foreach(\App\Models\User::all() as $teacher)
             <li class="teacher__item" data-id="{{ $teacher->id }}">
                 <p>ФИО: {{ $teacher->FIO }}</p>
