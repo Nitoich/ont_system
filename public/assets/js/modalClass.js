@@ -21,17 +21,6 @@ class Modal {
 
         this.modalOverlay.addEventListener('click', this.deleteModal);
 
-        this.modal.style.cssText = `
-                background: #fff;
-                min-width: 200px;
-                max-width: 60%;
-                padding: 10px;
-                padding-top: 30px;
-                border-box: box-sizing;
-                border-radius: 20px;
-                position: relative;
-            `;
-
         this.modal.innerHTML = template;
 
         document.body.append(this.modalOverlay);

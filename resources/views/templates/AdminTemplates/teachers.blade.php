@@ -69,7 +69,10 @@
                 method: 'get',
                 credentials: "same-origin"
             })
-            .then(res => {return res.text()})
+            .then(res => {
+                console.log(res.status)
+                return res.text();
+            })
             .then(res => {
                 let RootModal = new Modal(res);
             })
