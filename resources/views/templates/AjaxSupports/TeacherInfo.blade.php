@@ -81,6 +81,6 @@
         <button @click="updateRequest()">ОБНОВИТЬ</button>
     </div>
 
-    <button class="btn red teacher-modal-delete">УДАЛИТЬ</button>
+    <button ref="deleteBtn" @click="deleteTeacher()" class="btn red teacher-modal-delete">УДАЛИТЬ</button>
 
 </div>

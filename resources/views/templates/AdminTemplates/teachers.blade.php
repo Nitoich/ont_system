@@ -83,6 +83,7 @@
                             first_name: document.getElementById('modal-name').value,
                             last_name: document.getElementById('modal-fam').value,
                             patronymic: document.getElementById('modal-patronymic').value,
+                            delTimeout: 6,
                         }
                     },
                     props: [
@@ -92,6 +93,22 @@
                         updateRequest() {
                             console.log(this.first_name)
                             console.log(this.last_name)
+                        },
+                        deleteTeacher() {
+                            if(this.delTimeout != 0) {
+                                let interval = setInterval(() => {
+                                    console.log(this.delTimeout);
+                                    if (this.delTimeout != 0) {
+                                        this.delTimeout--;
+                                        this.$refs.deleteBtn.innerHTML = `Обдумайте это решение! (${this.delTimeout})`;
+                                    } else {
+                                        clearInterval(interval);
+                                        this.$refs.deleteBtn.innerHTML = 'Я все обдумал, всё равно удалить';
+                                    }
+                                }, 1000);
+                            } else {
+                                console.log('DELETE!')
+                            }
                         }
                     }
                 }).mount('#info-container');
