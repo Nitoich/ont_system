@@ -14,6 +14,10 @@
     }
 </style>
 
+@if(count($teachers) == 0)
+    <h1>Ничего нет</h1>
+@endif
+
 @foreach($teachers as $teacher)
     <li class="teacher__item" data-id="{{ $teacher->id }}">
         <p>ФИО: {{ $teacher->FIO }}</p>
