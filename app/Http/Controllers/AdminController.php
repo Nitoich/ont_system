@@ -92,4 +92,10 @@ class AdminController extends Controller
             return response()->json()->setStatusCode(404);
         }
     }
+
+    public function getTeachersTemplates() {
+        $query = $_GET['query'] ?? '';
+        $teachers = User::where('FIO', 'like', '%' . $query . '%')->orWhere('login', 'like', '%' . $query . '%')->get();
+        return View::make('templates.AjaxSupports.TeacherItems')->with('teachers', $teachers);
+    }
 }

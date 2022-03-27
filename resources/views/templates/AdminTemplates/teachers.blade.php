@@ -9,26 +9,15 @@
         text-align: center;
     }
 
-    .teacher__list {
+    .teacher__list,
+    .teachers {
         list-style: none;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
     }
 
-    .teacher__item {
-        padding: 20px 5px;
-        border: 2px solid #000;
-        width: 200px;
-        border-radius: 10px;
-        cursor: pointer;
-        margin: 10px 0;
-        transition: transform 0.4s;
-    }
 
-    .teacher__item:hover {
-        transform: perspective(300px) translateZ(20px);
-    }
 
     .teacher_add {
         padding: 20px;
@@ -76,43 +65,23 @@
         <input type="password" placeholder="Пароль" id="password">
         <button id="add_teacher">ДОБАВИТЬ</button>
     </div>
-    <ul class="teacher__list">
+    <ul class="teacher__list" id="vue-teacher-list">
         <li class="teachers__search">
             <label for="search-input">Поиск: </label>
-            <input type="text" id="search-input">
-            <button class="btn">Поиск</button>
+            <input @keyup.enter="getTeachers()" v-model="this.query" type="text" id="search-input">
+            <button class="btn" @click="getTeachers()">Поиск</button>
         </li>
-        @foreach(\App\Models\User::all() as $teacher)
-            <li class="teacher__item" data-id="{{ $teacher->id }}">
-                <p>ФИО: {{ $teacher->FIO }}</p>
-                <p>ID: {{ $teacher->id }}</p>
-                <p>login: {{ $teacher->login }}</p>
-            </li>
-        @endforeach
+        <div ref="teachersList" class="teachers">
+
+        </div>
     </ul>
 </div>
 
 <script src="assets/js/vue-components/teacherInfo.js"></script>
+<script src="assets/js/vue-components/teacherList.js"></script>
 
 <script>
-    let teachers_cards = document.querySelectorAll('li.teacher__item');
-    teachers_cards.forEach(el => {
-        el.addEventListener('click', function(event) {
-            let RootModal = new Modal('<h1 align="center">Loading...</h1>');
-            fetch('/admin/teacher?id=' + this.getAttribute('data-id'), {
-                method: 'get',
-                credentials: "same-origin"
-            })
-            .then(res => {
-                console.log(res.status)
-                return res.text();
-            })
-            .then(res => {
-                RootModal.setTemplate(res);
-                window.teacherInfo = Vue.createApp(teacherCard).mount('#info-container');
-            })
-        });
-    });
+
 
     document.getElementById('add_teacher').addEventListener('click', event => {
         let data = {
