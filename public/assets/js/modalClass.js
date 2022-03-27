@@ -52,4 +52,9 @@ class Modal {
 
         this.modal.append(this.closeBtn);
     }
+
+    setTemplate = (template) => {
+        this.modal.innerHTML = template;
+        this.createCloseBtn();
+    }
 }

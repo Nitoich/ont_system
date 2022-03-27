@@ -65,6 +65,7 @@
     let teachers_cards = document.querySelectorAll('li.teacher__item');
     teachers_cards.forEach(el => {
         el.addEventListener('click', function(event) {
+            let RootModal = new Modal('<h1 align="center">Loading...</h1>');
             fetch('/admin/teacher?id=' + this.getAttribute('data-id'), {
                 method: 'get',
                 credentials: "same-origin"
@@ -74,7 +75,7 @@
                 return res.text();
             })
             .then(res => {
-                let RootModal = new Modal(res);
+                RootModal.setTemplate(res);
             })
 
         });
