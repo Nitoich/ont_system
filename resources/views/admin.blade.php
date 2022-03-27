@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/630e35a26e.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="assets/js/vue-components/adminMenu.js"></script>
+    <script src="assets/js/modalClass.js"></script>
     <link rel="stylesheet" href="/adm_style.css">
 @endsection
 

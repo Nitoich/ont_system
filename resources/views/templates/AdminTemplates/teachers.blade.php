@@ -36,6 +36,8 @@
     }
 </style>
 
+
+
 <div class="wrapper">
     <h1 class="title">Управление учителями</h1>
     <div class="teacher_add">
@@ -58,3 +60,13 @@
         @endforeach
     </ul>
 </div>
+
+<script>
+    let teachers_cards = document.querySelectorAll('li.teacher__item');
+    teachers_cards.forEach(el => {
+        el.addEventListener('click', function(event) {
+            console.log('123')
+            let RootModal = new Modal('Учитель!');
+        });
+    });
+</script>
