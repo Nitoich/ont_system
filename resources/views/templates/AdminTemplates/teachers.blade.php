@@ -41,14 +41,13 @@
 <div class="wrapper">
     <h1 class="title">Управление учителями</h1>
     <div class="teacher_add">
-        <form action="">
-            <input type="text" placeholder="Фамилия">
-            <input type="text" placeholder="Имя">
-            <input type="text" placeholder="Отчество">
-            <input type="text" placeholder="Логин">
-            <input type="password" placeholder="Пароль">
-            <button>ДОБАВИТЬ</button>
-        </form>
+        @csrf
+        <input type="text" placeholder="Фамилия" id="last_name">
+        <input type="text" placeholder="Имя" id="first_name">
+        <input type="text" placeholder="Отчество" id="patronymic">
+        <input type="text" placeholder="Логин" id="login">
+        <input type="password" placeholder="Пароль" id="password">
+        <button id="add_teacher">ДОБАВИТЬ</button>
     </div>
     <ul class="teacher__list">
         @foreach(\App\Models\User::all() as $teacher)
@@ -80,4 +79,32 @@
 
         });
     });
+
+    document.getElementById('add_teacher').addEventListener('click', event => {
+        let data = {
+            _token: document.querySelector('input[name="_token"]').value,
+            last_name: document.getElementById('last_name').value,
+            first_name: document.getElementById('first_name').value,
+            patronymic: document.getElementById('patronymic').value,
+            login: document.getElementById('login').value,
+            password: document.getElementById('password').value
+        }
+
+        fetch(`/admin/teacher?_token=${data._token}&last_name=${data.last_name}&first_name=${data.first_name}&patronymic=${data.patronymic}&login=${data.login}&password=${data.password}`, {
+            method: "post",
+            credentials: "same-origin",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => {
+            if (res.status != 200) {
+                console.log('Error!')
+            } else {
+                console.log('Succes!');
+                window.location.reload();
+            }
+        })
+    })
 </script>

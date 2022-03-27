@@ -46,4 +46,32 @@ class AdminController extends Controller
             ]
         ],404);
     }
+
+    public function addTeacher(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'login' => 'required|unique:prepod',
+            'password' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'patronymic' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        $user = User::create([
+            'login' => $request->login,
+            'Fam' => $request->last_name,
+            'name' => $request->first_name,
+            'patronymic' => $request->patronymic,
+            'password' => $request->password,
+            'FIO' => $request->last_name . ' ' . $request->first_name . ' ' . $request->patronymic,
+            'token' => ''
+        ]);
+
+        if($user) {
+            return response()->json()->setStatusCode(200);
+        }
+    }
 }

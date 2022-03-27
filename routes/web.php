@@ -31,5 +31,7 @@ Route::get('/logout', function() {
 Route::middleware('auth')->group(function() {
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'getPage']);
     Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
+
     Route::get('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'getTeacherInfo']);
+    Route::post('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'addTeacher']);
 });

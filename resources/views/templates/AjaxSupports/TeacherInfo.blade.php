@@ -41,7 +41,7 @@
 
     <div class="input-block">
         <label for="fam">Фамилия:</label><br>
-        <input id="fam" type="text" value="{{ $teacher->fam }}">
+        <input id="fam" type="text" value="{{ $teacher->Fam }}">
     </div>
 
     <div class="input-block">

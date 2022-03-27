@@ -13,6 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'prepod';
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -21,8 +22,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'Fam',
         'password',
+        'FIO',
+        'patronymic',
+        'login',
+        'token',
     ];
 
     /**
