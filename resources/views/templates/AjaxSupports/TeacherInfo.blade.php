@@ -25,6 +25,23 @@
         margin-top: 21px;
         height: 38px;
     }
+
+    .teacher-modal-delete {
+        width: 550px;
+        margin: 10px 20px;
+        background: rgba(255,20,20, 0.8);
+        border: none;
+        height: 38px;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 10px;
+        color: #fff;
+        transition: 0.3s;
+    }
+
+    .teacher-modal-delete:hover {
+        background: rgba(255,20,20, 1);
+    }
 </style>
 
 <input type="hidden" id="modal-login" value="{{ $teacher->login }}">
@@ -63,5 +80,7 @@
     <div class="input-block">
         <button @click="updateRequest()">ОБНОВИТЬ</button>
     </div>
+
+    <button class="btn red teacher-modal-delete">УДАЛИТЬ</button>
 
 </div>
