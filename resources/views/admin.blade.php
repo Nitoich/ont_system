@@ -15,7 +15,7 @@
 
 @section('content')
     <div id="vue-menu">
-        <div ref="menu" class="menu" @mouseenter="showing()" @mouseleave="hidding()">
+        <div ref="menu" class="menu">
             <ul class="menu__list">
                 <li class="menu__item" @click="goToSite('/')">
                     <div class="item__img">
@@ -69,6 +69,8 @@
                     <div class="item__name">Изменения</div>
                 </li>
             </ul>
+
+            <button class="expand-btn" @click="this.toggleView()"><i class="fa-solid fa-left-right"></i></button>
         </div>
     </div>
 

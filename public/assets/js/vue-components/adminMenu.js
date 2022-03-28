@@ -1,7 +1,7 @@
 const adminMenu = {
     data() {
         return {
-
+            expand: false
         }
     },
     methods: {
@@ -10,6 +10,9 @@ const adminMenu = {
         },
         hidding() {
             this.$refs.menu.classList.remove('active');
+        },
+        toggleView() {
+            this.$refs.menu.classList.toggle('active');
         },
         goToSite(url) {
             window.location.href=url;
