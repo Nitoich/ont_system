@@ -44,6 +44,7 @@
     }
 </style>
 
+<input type="hidden" id="modal-id" value="{{ $teacher->id }}">
 <input type="hidden" id="modal-login" value="{{ $teacher->login }}">
 <input id="modal-password" type="hidden" value="{{ $teacher->password }}">
 <input id="modal-fam" type="hidden" value="{{ $teacher->Fam }}">
@@ -78,7 +79,7 @@
     </div>
 
     <div class="input-block">
-        <button @click="updateRequest()">ОБНОВИТЬ</button>
+        <button :disabled="!this.canUpdate" @click="updateRequest()">ОБНОВИТЬ</button>
     </div>
 
     <button ref="deleteBtn" @click="deleteTeacher()" class="btn red teacher-modal-delete">УДАЛИТЬ</button>

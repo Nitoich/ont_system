@@ -36,4 +36,5 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin/teacher/list', [\App\Http\Controllers\AdminController::class, 'getTeachersTemplates']);
     Route::post('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'addTeacher']);
     Route::delete('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'delTeacher']);
+    Route::post('/admin/teacher/update', [\App\Http\Controllers\AdminController::class, 'updateTeacher']);
 });

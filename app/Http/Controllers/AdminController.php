@@ -98,4 +98,31 @@ class AdminController extends Controller
         $teachers = User::where('FIO', 'like', '%' . $query . '%')->orWhere('login', 'like', '%' . $query . '%')->get();
         return View::make('templates.AjaxSupports.TeacherItems')->with('teachers', $teachers);
     }
+
+    public function updateTeacher(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'password' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'patronymic' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),400);
+        }
+
+        $user = User::where('id', $request->id)->first();
+        if ($user) {
+            $user->password = $request->password;
+            $user->name = $request->first_name;
+            $user->Fam = $request->last_name;
+            $user->patronymic = $request->patronymic;
+            $user->FIO = $request->last_name . ' ' . $request->first_name . ' ' . $request->patronymic;
+            $user->save();
+            return response()->json()->setStatusCode(200);
+        } else {
+            return response()->json()->setStatusCode(404);
+        }
+    }
 }
