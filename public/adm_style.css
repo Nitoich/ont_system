@@ -19,6 +19,7 @@ body {
     background: rgba(92,180,142,1);
     overflow: hidden;
     transition: 0.5s;
+    border-left: 5px solid rgba(92,180,142,1);
 }
 
 .menu__list {
@@ -33,6 +34,7 @@ body {
     transition: 0.5s;
     cursor: pointer;
     padding: 5px 0;
+    margin: 20px 0;
 }
 
 .menu__list > .menu__item > .item__img {
@@ -47,12 +49,70 @@ body {
     width: 150px;
 }
 
-.menu .menu__item:hover {
-    background: #00000050;
-}
-
 .menu.active .menu__item {
     justify-content: start;
+}
+
+.menu__item {
+    position: relative;
+}
+
+.menu__item.active {
+    background: #fff;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.menu__item span:nth-child(1) {
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 50px;
+    background: #fff;
+    transition: 0.5s;
+    display: none;
+}
+
+.menu__item span:nth-child(1)::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 25px;
+    background: rgba(92,180,142,1);
+    transition: 0.5s;
+}
+
+.menu__item span:nth-child(2) {
+    position: absolute;
+    bottom: -20px;
+    height: 20px;
+    width: 50px;
+    background: #fff;
+    transition: 0.5s;
+    display: none;
+}
+
+.menu__item span:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 25px;
+    background: rgba(92,180,142,1);
+    transition: 0.5s;
+}
+
+.menu__item.active span {
+    display: block;
+}
+
+.menu.active .menu__item span {
+    width: 100%;
 }
 
 .modal {

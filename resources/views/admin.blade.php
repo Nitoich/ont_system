@@ -24,35 +24,45 @@
                     <div class="item__name">На сайт</div>
                 </li>
 
-                <li class="menu__item" @click="goToSite('/admin?tab=home')">
+                <li class="menu__item <?php if(isset($_GET['tab']) && $_GET['tab'] == 'home') { echo "active"; } ?>" @click="goToSite('/admin?tab=home')">
+                    <span></span>
+                    <span></span>
                     <div class="item__img">
                         <i class="fa-solid fa-house-user"></i>
                     </div>
                     <div class="item__name">Главная</div>
                 </li>
 
-                <li class="menu__item" @click="goToSite('/admin?tab=teachers')">
+                <li class="menu__item <?php if(isset($_GET['tab']) && $_GET['tab'] == 'teachers') { echo "active"; } ?>" @click="goToSite('/admin?tab=teachers')">
+                    <span></span>
+                    <span></span>
                     <div class="item__img">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="item__name">Учителя</div>
                 </li>
 
-                <li class="menu__item" @click="goToSite('/admin?tab=groups')">
+                <li class="menu__item <?php if(isset($_GET['tab']) && $_GET['tab'] == 'groups') { echo "active"; } ?>" @click="goToSite('/admin?tab=groups')">
+                    <span></span>
+                    <span></span>
                     <div class="item__img">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div class="item__name">Группы</div>
                 </li>
 
-                <li class="menu__item" @click="goToSite('/admin?tab=rasp')">
+                <li class="menu__item <?php if(isset($_GET['tab']) && $_GET['tab'] == 'rasp') { echo "active"; } ?>" @click="goToSite('/admin?tab=rasp')">
+                    <span></span>
+                    <span></span>
                     <div class="item__img">
                         <i class="fa-solid fa-table-cells"></i>
                     </div>
                     <div class="item__name">Расписание</div>
                 </li>
 
-                <li class="menu__item" @click="goToSite('/admin?tab=izm')">
+                <li class="menu__item <?php if(isset($_GET['tab']) && $_GET['tab'] == 'izm') { echo "active"; } ?>" @click="goToSite('/admin?tab=izm')">
+                    <span></span>
+                    <span></span>
                     <div class="item__img">
                         <i class="fa-solid fa-newspaper"></i>
                     </div>
