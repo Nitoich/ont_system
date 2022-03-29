@@ -93,6 +93,25 @@
             password: document.getElementById('password').value
         }
 
+        let validationError = false;
+
+
+        // Очистка и валидация
+        for(el in data) {
+            if(data[el] == '') {
+                validationError = true;
+            }
+        }
+
+         if(validationError) {
+             this.ErrorModal = new Modal(`
+                 <div style="padding: 20px;">
+                     <p style="font-size: 26px">Не все поля заполнены!</p>
+                 </div>
+             `);
+             return false;
+         }
+
         fetch(`/admin/teacher?_token=${data._token}&last_name=${data.last_name}&first_name=${data.first_name}&patronymic=${data.patronymic}&login=${data.login}&password=${data.password}`, {
             method: "post",
             credentials: "same-origin",
@@ -103,7 +122,7 @@
         })
         .then(res => {
             if (res.status != 200) {
-                console.log('Error!')
+                console.log(res.json())
             } else {
                 console.log('Succes!');
                 window.location.reload();
