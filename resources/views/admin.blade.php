@@ -15,7 +15,7 @@
 
 @section('content')
     <div id="vue-menu">
-        <div ref="menu" class="menu">
+        <div ref="menu" class="menu" :class="{active : this.expand}">
             <ul class="menu__list">
                 <li class="menu__item" @click="goToSite('/')">
                     <div class="item__img">
