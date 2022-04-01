@@ -2,17 +2,17 @@
     <h1 class="title">Управление группами</h1>
     <div class="add-group">
         <h2>Добавить новую группу</h2>
-        <input type="text" placeholder="Название">
+        <input type="text" placeholder="Название" ref="addInput">
         <button>ДОБАВИТЬ</button>
     </div>
     <div class="search-group">
         <label for="search-input">Поиск: </label>
-        <input type="text" id="search-input">
-        <button>ПОИСК</button>
+        <input type="text" id="search-input" v-model="this.query" @keyup.enter="this.getGroups()">
+        <button @click="this.getGroups()">ПОИСК</button>
     </div>
     <div class="group__list">
-        <div class="group__item" id="group-1">
-            <div class="name">Название: ИСП-3</div>
+        <div class="group__item" v-for="group in this.groups" :id="group">
+            <div class="name">Название: @{{ group }}</div>
             <div class="group__control">
                 <button>Удалить</button>
             </div>

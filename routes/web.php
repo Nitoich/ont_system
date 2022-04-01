@@ -32,9 +32,14 @@ Route::middleware('auth')->group(function() {
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'getPage']);
     Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
 
+    // Teacher
     Route::get('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'getTeacherInfo']);
     Route::get('/admin/teacher/list', [\App\Http\Controllers\AdminController::class, 'getTeachersTemplates']);
     Route::post('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'addTeacher']);
     Route::delete('/admin/teacher', [\App\Http\Controllers\AdminController::class, 'delTeacher']);
     Route::post('/admin/teacher/update', [\App\Http\Controllers\AdminController::class, 'updateTeacher']);
+
+
+    // Group
+    Route::post('/admin/group', [\App\Http\Controllers\GroupController::class, 'addGroup']);
 });
