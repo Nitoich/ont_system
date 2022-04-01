@@ -139,4 +139,104 @@ body {
     .modal {
         max-width: 99%;
     }
+
+    .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        flex-direction: row;
+        border: none;
+        border-bottom: 5px solid rgba(92,180,142,1)
+    }
+
+    .menu__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .menu__list > .menu__item {
+        width: 50px;
+        margin-top: 0;
+        height: max-content;
+        transition: 0.4s;
+        transform: translateY(7px);
+    }
+
+    .menu__item.active {
+        background: #fff;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    .menu__list > .menu__item > .item__img {
+        margin: 0;
+    }
+
+    .menu__item span:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: -20px;
+        height: 50px;
+        width: 20px;
+        background: #fff;
+        transition: 0.5s;
+        display: none;
+        z-index: 10;
+    }
+
+    .menu__item span:nth-child(1)::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 0;
+        background: rgba(92,180,142,1);
+        transition: 0.5s;
+    }
+
+    .menu__item span:nth-child(2) {
+        position: absolute;
+        top: 0;
+        right: -20px;
+        height: 50px;
+        width: 20px;
+        background: #fff;
+        transition: 0.5s;
+        display: none;
+        z-index: 10;
+    }
+
+    .menu__item span:nth-child(2)::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 0;
+        background: rgba(92,180,142,1);
+        transition: 0.5s;
+    }
+
+
+    .menu__item.active span {
+        display: block;
+    }
+
+    .menu__item .item__name {
+        display: none;
+    }
+
+    .expand-btn {
+         display: none;
+    }
 }
