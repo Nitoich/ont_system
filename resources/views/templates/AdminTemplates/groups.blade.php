@@ -11,8 +11,11 @@
         <button>ПОИСК</button>
     </div>
     <div class="group__list">
-        <div class="group__item">
-            <div class="name">ИСП-3</div>
+        <div class="group__item" id="group-1">
+            <div class="name">Название: ИСП-3</div>
+            <div class="group__control">
+                <button>Удалить</button>
+            </div>
         </div>
     </div>
 </div>
@@ -28,5 +31,17 @@
 
     .title {
         text-align: center;
+    }
+
+    .group__list {
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .group__item {
+        padding: 5px;
+        border: 2px solid black;
+        display: flex;
+        justify-content: space-between;
     }
 </style>
