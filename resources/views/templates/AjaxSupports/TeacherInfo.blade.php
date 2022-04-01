@@ -2,33 +2,32 @@
     .info-container {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         flex-wrap: wrap;
         max-width: 600px;
         font-family: "Segoe UI";
     }
 
     .input-block {
-        margin: 10px 20px;
-        width: 250px;
+        margin: 10px 0;
         box-sizing: border-box;
     }
 
     .input-block > input {
         padding: 5px;
+        box-sizing: border-box;
         font-size: 20px;
         font-weight: bold;
         box-sizing: border-box;
     }
 
     .input-block > button {
-        width: 257.667px;
-        margin-top: 21px;
+        width: 100%;
         height: 38px;
     }
 
     .teacher-modal-delete {
-        width: 550px;
-        margin: 10px 20px;
+        width: 100%;
         background: rgba(255,20,20, 0.8);
         border: none;
         height: 38px;
