@@ -77,14 +77,14 @@ class AdminController extends Controller
 
     public function delTeacher(Request $request) {
         $validator = Validator::make($request->all(), [
-            'login' => 'required',
+            'id' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(),400);
         }
 
-        $user = User::where('login', $request->login)->first();
+        $user = User::where('id', $request->id)->first();
         if ($user) {
             $user->delete();
             return response()->json()->setStatusCode(200);
@@ -102,6 +102,7 @@ class AdminController extends Controller
     public function updateTeacher(Request $request) {
         $validator = Validator::make($request->all(), [
             'id' => 'required',
+            'login' => 'required',
             'password' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',

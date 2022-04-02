@@ -8,7 +8,9 @@ const teacherCard = {
             last_name: document.getElementById('modal-fam').value,
             patronymic: document.getElementById('modal-patronymic').value,
             delTimeout: 6,
-            canUpdate: false
+            canUpdate: false,
+            error: false,
+            errorText: 'Error!'
         }
     },
     props: [
@@ -36,7 +38,8 @@ const teacherCard = {
             })
                 .then(res => {
                     if (res.status != 200) {
-                        console.log('Error')
+                        this.error = true;
+                        this.errorText = `Не удалось применить изменения!`;
                     } else {
                         window.location.reload();
                     }
@@ -55,13 +58,14 @@ const teacherCard = {
                     }
                 }, 1000);
             } else {
-                fetch(`/admin/teacher?login=${this.login}&_token=${document.querySelector('input[name="_token"]').value}`, {
+                fetch(`/admin/teacher?id=${this.id}&_token=${document.querySelector('input[name="_token"]').value}`, {
                     method: 'delete',
                     credentials: 'same-origin'
                 })
                     .then(res => {
                         if(res.status != 200) {
-                            console.log('error!');
+                            this.error = true;
+                            this.errorText = `Не удалось применить изменения!`;
                         } else {
                             window.location.reload();
                         }

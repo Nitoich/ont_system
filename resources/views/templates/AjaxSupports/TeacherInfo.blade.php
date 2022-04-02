@@ -52,6 +52,10 @@
 
 <div class="info-container" id="info-container">
 
+    <div class="teacher-error" v-if="this.error">
+        <p>@{{ this.errorText }}</p>
+    </div>
+
     <div class="input-block">
         <label for="login">Логин:</label><br>
         <input disabled v-model="this.login" type="text">
