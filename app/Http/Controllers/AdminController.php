@@ -95,7 +95,7 @@ class AdminController extends Controller
 
     public function getTeachersTemplates() {
         $query = $_GET['query'] ?? '';
-        $teachers = User::where('FIO', 'like', '%' . $query . '%')->orWhere('login', 'like', '%' . $query . '%')->get();
+        $teachers = User::where('name', 'like', $query . '%')->orWhere('Fam', 'like', $query . '%')->orWhere('patronymic', 'like', $query . '%')->orWhere('login', 'like', $query . '%')->get();
         return View::make('templates.AjaxSupports.TeacherItems')->with('teachers', $teachers);
     }
 
