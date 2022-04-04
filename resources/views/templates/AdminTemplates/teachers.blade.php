@@ -87,7 +87,7 @@
         <li class="teachers__search">
             <input @keyup.enter="getTeachers()" v-model="this.query" type="text" id="search-input" placeholder="Поиск">
             <button class="btn" @click="getTeachers()">Применить</button>
-            <button class="btn" @click="getTeachers()">Добавить преподователя</button>
+            <button class="btn" @click="showAddTeacherModal()">Добавить преподователя</button>
         </li>
         <div ref="teachersList" class="teachers">
 
@@ -97,6 +97,7 @@
 
 <script src="assets/js/vue-components/teacherInfo.js"></script>
 <script src="assets/js/vue-components/teacherList.js"></script>
+<script src="assets/js/vue-components/teacherAdd.js"></script>
 
 <script>
 

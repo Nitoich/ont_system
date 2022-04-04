@@ -38,6 +38,65 @@ const TeacherList = {
                         })
                 });
             });
+        },
+        showAddTeacherModal() {
+            let RootModal = new Modal(`
+                <style>
+                    .input-block {
+                        margin: 10px 0;
+                        box-sizing: border-box;
+                    }
+
+                    .input-block > input {
+                        padding: 5px;
+                        box-sizing: border-box;
+                        font-size: 20px;
+                        font-weight: bold;
+                        box-sizing: border-box;
+                    }
+
+                    .input-block > button {
+                        width: 100%;
+                        height: 38px;
+                    }
+                </style>
+                <div id="add-new-teacher">
+                    <div class="teacher-error" v-if="this.error">
+                        <p>@{{ this.errorText }}</p>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="login">Логин:</label><br>
+                        <input v-model="this.login" type="text">
+                    </div>
+
+                    <div class="input-block">
+                        <label for="password">Пароль:</label><br>
+                        <input type="text" v-model="this.password">
+                    </div>
+
+                    <div class="input-block">
+                        <label for="fam">Фамилия:</label><br>
+                        <input type="text" v-model="this.last_name">
+                    </div>
+
+                    <div class="input-block">
+                        <label for="name">Имя:</label><br>
+                        <input type="text" v-model="this.first_name">
+                    </div>
+
+                    <div class="input-block">
+                        <label for="patronymic">Отчество:</label><br>
+                        <input type="text" v-model="this.patronymic">
+                    </div>
+
+                    <div class="input-block">
+                        <button :disabled="!this.canCreate" @click="addTeacher()">ДОБАВИТЬ</button>
+                    </div>
+                </div>
+            `);
+
+            window.VueAppModal = Vue.createApp(TeacherAdd).mount('#add-new-teacher');
         }
     }
 }
