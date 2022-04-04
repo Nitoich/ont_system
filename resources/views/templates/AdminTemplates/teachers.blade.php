@@ -17,8 +17,6 @@
         flex-wrap: wrap;
     }
 
-
-
     .teacher_add {
         padding: 20px;
         border: 2px solid black;
@@ -28,14 +26,15 @@
     .teachers__search {
         width: 100%;
         padding: 20px;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
     }
 
     .teachers__search input {
         font-weight: bold;
+        width: inherit;
         font-size: 24px;
-        flex: 1;
         margin: 0 10px;
     }
 
@@ -49,6 +48,16 @@
 
     .btn:hover {
         background: #207d5999;
+    }
+
+    @media screen and (max-width: 768px) {
+        .teachers__search {
+            flex-direction: column;
+        }
+
+        .teachers__search input {
+            margin-bottom: 10px;
+        }
     }
 </style>
 
@@ -67,9 +76,8 @@
     </div>
     <ul class="teacher__list" id="vue-teacher-list">
         <li class="teachers__search">
-            <label for="search-input">Поиск: </label>
-            <input @keyup.enter="getTeachers()" v-model="this.query" type="text" id="search-input">
-            <button class="btn" @click="getTeachers()">Поиск</button>
+            <input @keyup.enter="getTeachers()" v-model="this.query" type="text" id="search-input" placeholder="Поиск">
+            <button class="btn" @click="getTeachers()">Применить</button>
         </li>
         <div ref="teachersList" class="teachers">
 

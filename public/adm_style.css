@@ -128,11 +128,11 @@ body {
     background: #fff;
     min-width: 200px;
     max-width: 60%;
-    padding: 10px;
+    padding: 25px;
     padding-top: 30px;
     border-box: box-sizing;
-    border-radius: 20px;
     position: relative;
+    box-shadow: 0 0px 16px 5px rgba(255,255,255, 0.4);
 }
 
 @media screen and (max-width: 768px) {
