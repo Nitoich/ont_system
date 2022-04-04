@@ -22,11 +22,11 @@
     .teacher_add {
         padding: 20px;
         border: 2px solid black;
+        display: none;
     }
 
     .teachers__search {
         width: 100%;
-        border: 2px solid black;
         padding: 20px;
         display: flex;
         align-items: center;
