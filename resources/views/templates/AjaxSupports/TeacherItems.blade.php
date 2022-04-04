@@ -20,11 +20,13 @@
         width: 200px;
         margin: 10px;
         cursor: pointer;
+        transition: transform 0.4s;
     }
 
     /* On mouse-over, add a deeper shadow */
     .teacher__item:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 10px rgba(0,0,0,0.2);
+        transform: perspective(200px) rotateY(5deg) translateY(-10px);
     }
 
     /* Add some padding inside the card container */
