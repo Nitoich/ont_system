@@ -44,6 +44,11 @@
         border: none;
         cursor: pointer;
         transition: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        margin: 0 10px;
     }
 
     .btn:hover {
@@ -57,6 +62,10 @@
 
         .teachers__search input {
             margin-bottom: 10px;
+        }
+
+        .btn {
+            margin: 10px 0;
         }
     }
 </style>
@@ -78,6 +87,7 @@
         <li class="teachers__search">
             <input @keyup.enter="getTeachers()" v-model="this.query" type="text" id="search-input" placeholder="Поиск">
             <button class="btn" @click="getTeachers()">Применить</button>
+            <button class="btn" @click="getTeachers()">Добавить преподователя</button>
         </li>
         <div ref="teachersList" class="teachers">
 
