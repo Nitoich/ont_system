@@ -28,6 +28,8 @@ Route::get('/logout', function() {
     return redirect('/#login');
 });
 
+Route::get('/izm', [\App\Http\Controllers\IzmController::class, 'getIzm']);
+
 Route::middleware('auth')->group(function() {
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'getPage']);
     Route::get('/admin/template', [\App\Http\Controllers\AdminController::class, 'getTemplate']);
