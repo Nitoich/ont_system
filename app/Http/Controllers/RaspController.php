@@ -88,6 +88,15 @@ class RaspController extends Controller
             }
         }
 
+        if (count($this->data) == 0) {
+            return response()->json([
+                'error' => [
+                    'code' => 404,
+                    'message' => 'Not found!'
+                ]
+            ])->setStatusCode(404);
+        }
+
         return response()->json($this->data,200);
     }
 }
