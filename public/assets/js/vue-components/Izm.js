@@ -3,16 +3,21 @@ const IzmSlide = {
         return {
             date: '',
             group: '',
-            izmDate: undefined
+            izmDate: undefined,
         }
     },
     mounted() {
         this.date = new Date().toISOString().toString().slice(0,10);
+        this.getIzmDate();
         console.log('Izm vue app mounted!')
     },
     methods: {
         getIzm() {
-            fetch(`/izm/date?`)
+            fetch(`/izm/date?id=${this.izmDate.id}`)
+                .then(res => {return res.text()})
+                .then(res => {
+                    this.$refs.IzmList.innerHTML = res;
+                })
         },
         getIzmDate() {
             fetch(`/izm?date=${this.date}`)
@@ -32,6 +37,9 @@ const IzmSlide = {
     watch: {
         date: function () {
             this.getIzmDate();
+        },
+        group: function() {
+            this.getIzm();
         }
     }
 }
