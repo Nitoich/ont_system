@@ -13,10 +13,10 @@ class IzmDate extends Model
     public $timestamps = false;
 
     protected $with = [
-        'izm'
+        // 'izm'
     ];
 
-    public function izm() {
-        return $this->hasMany(Izm::class, 'id_izm', 'id');
-    }
+//    public function izm() {
+//        return $this->hasMany(Izm::class, 'id_izm', 'id');
+//    }
 }

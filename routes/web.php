@@ -29,6 +29,7 @@ Route::get('/logout', function() {
 });
 
 Route::get('/izm', [\App\Http\Controllers\IzmController::class, 'getIzm']);
+Route::get('/izm/date', [\App\Http\Controllers\IzmController::class, 'getIzmById']);
 
 Route::middleware('auth')->group(function() {
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'getPage']);

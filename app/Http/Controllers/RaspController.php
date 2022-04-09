@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rasp;
+use App\Http\Resources\RaspDayResource;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -71,7 +72,7 @@ class RaspController extends Controller
         $allRasp = Rasp::where('gruppa', $request->group)->get()->sortBy('id_rasp');
 
         $allRasp->each(function($para){
-            $this->data[$para->day['den']][] = $para;
+            $this->data[$para->day['id']][] = $para;
         });
 
 

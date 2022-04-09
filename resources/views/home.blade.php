@@ -12,6 +12,7 @@
     <script src="<?php echo asset('assets/js/slidesForm.js'); ?>"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="{{ asset('assets/js/vue-components/Rasp.js') }}"></script>
+    <script src="{{ asset('assets/js/vue-components/Izm.js') }}"></script>
 @endsection
 
 @section('content')

@@ -11,45 +11,52 @@ use Illuminate\Support\Facades\View;
 
 class IzmController extends Controller
 {
-    protected $data = [];
-
     public function getIzm() {
-        $izm = IzmDate::all();
+        if(isset($_REQUEST['date'])) {
+            $validator = Validator::make(['date' => $_REQUEST['date']], [
+                'date' => 'required|date'
+            ]);
 
-        if (isset($_REQUEST['date'])) {
-            $izm = IzmDate::where('data', $_REQUEST['date'])->first();
-
-            if (!$izm) {
-                return response()->json([
-                    'error' => [
-                        'code' => 404,
-                        'message' => 'Not found!'
-                    ]
-                ],404);
+            if ($validator->fails()) {
+                return response()->json($validator->errors(), 400);
             }
+
+            $res = IzmDate::where('data', $_REQUEST['date'])->first();
+
+            if (!$res) {
+                return response()->json()->setStatusCode(404);
+            }
+
+            return response()->json($res, 200);
+
+        }
+        return response()->json(IzmDate::all());
+    }
+
+    public function getIzmById(Request $request) {
+
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|numeric'
+        ]);
+
+        if($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
 
-       // if (!isset($_REQUEST['date'])) {
+        $izm = Izm::where('id_izm', $request->id);
+        if (isset($_REQUEST['group'])) {
+            $izm = $izm->where('gruppa', $_REQUEST['group']);
+        }
+        $izm = $izm->get();
 
-        $izmArray = $izm->toArray();
-        foreach ($izmArray as $item) {
-            $tmp = [];
-            foreach ($item['izm'] as $el) {
-                $tmp[$el['gruppa']][] = $el;
-            }
-            $item['izma'] = '123';
+       // return response()->json($izm);
+
+        $data = [];
+
+        for($i = 0; $i <= count($izm) - 1; $i++) {
+            $data[$izm[$i]->gruppa][] = $izm[$i];
         }
 
-//            $izm->each(function ($item) {
-//                $this->data = [];
-//                $item->izm->each(function ($el) use ($item) {
-//                    $this->data[$el->gruppa][] = $el;
-//                    $item->izm = $this->data;
-//                });
-//            });
-        //}
-
-
-        return response()->json($izmArray);
+        return response()->json($data);
     }
 }
