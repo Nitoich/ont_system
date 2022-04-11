@@ -1,26 +1,22 @@
-<div class="wrapper">
+<script src="assets/js/vue-components/adminIzm.js"></script>
+
+<div class="wrapper" id="vue-admin-izm" >
     <h1 class="title">Управление изменениями в расписании</h1>
     <div class="izm__content">
         <div class="column izmDate">
-            @foreach(\App\Models\IzmDate::all() as $item)
-                <div class="izmDate__item">
-                    <p>{{ $item->data }} ({{ $item->den }})</p>
-                </div>
-            @endforeach
+            <div ref="izmDataItems" :data-id="item.id" class="izmDate__item" v-for="item in this.izmDateList" @click="setActiveIzmDate">
+                @{{ item.data }} (@{{ item.den }})
+            </div>
         </div>
         <div class="column izmGroup">
-            @foreach(\App\Models\Group::all() as $item)
-                <div class="izmDate__item">
-                    <p>{{ $item->nomer }}</p>
-                </div>
-            @endforeach
+            <div ref="groupsItems" class="izmDate__item" v-for="item in this.groups" :data-group="item" @click="setActiveGroup">
+                @{{ item }}
+            </div>
         </div>
         <div class="column LessonsGroup">
-            @foreach(\App\Models\Izm::all() as $item)
-                <div class="izmDate__item">
-                    <p>Пара: {{ $item->para }} Кабинет: {{ $item->kabinet }} Причина: {{ $item->prichina }}</p>
-                </div>
-            @endforeach
+            <div class="izmDate__item" v-for="item in this.izm">
+                Пара: @{{ item.para }} || Кабинет: @{{ item.kabinet }} || Причина: @{{ item.prichina }}
+            </div>
         </div>
     </div>
 </div>
@@ -59,6 +55,11 @@
         padding: 10px;
         box-sizing: border-box;
         cursor: pointer;
+        user-select: none;
+    }
+
+    .izmDate__item.active {
+        background: gray;
     }
 
     .izmDate__item:hover {

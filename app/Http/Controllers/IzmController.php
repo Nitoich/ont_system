@@ -57,6 +57,6 @@ class IzmController extends Controller
             $data[$izm[$i]->gruppa][] = $izm[$i];
         }
 
-        return response()->json($data);
+        return response()->json($izm);
     }
 }
